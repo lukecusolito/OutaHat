@@ -14,10 +14,24 @@
         <ListView x:Name="displayHatItems">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}" />
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" VerticalOptions="Fill" Text="{Binding Text}" />
+                                <Button Grid.Column="1" VerticalOptions="Fill" Text="Remove" Clicked="OnRemoveItemClicked" CommandParameter="{Binding .}" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Text="Draw from Hat" Clicked="OnDrawClicked"  HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
     </StackLayout>
 
 </ContentPage>
