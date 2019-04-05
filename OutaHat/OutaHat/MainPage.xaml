@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:OutaHat"
              x:Class="OutaHat.MainPage">
 
-    <StackLayout>
+    <StackLayout Padding="20,20,20,20">
         <Entry x:Name="itemEntry"
                 Placeholder="Add an item to the hat"/>
 
@@ -18,11 +18,11 @@
                         <ViewCell.View>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="7*"/>
                                     <ColumnDefinition Width="3*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" VerticalOptions="Fill" Text="{Binding Text}" />
+                                <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding Text}" />
                                 <Button Grid.Column="1" VerticalOptions="Fill" Text="Remove" Clicked="OnRemoveItemClicked" CommandParameter="{Binding .}" />
                             </Grid>
                         </ViewCell.View>

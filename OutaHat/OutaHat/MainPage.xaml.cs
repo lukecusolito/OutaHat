@@ -16,6 +16,11 @@ namespace OutaHat
         public MainPage()
         {
             InitializeComponent();
+
+            displayHatItems.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                if (sender is ListView lv) lv.SelectedItem = null;
+            };
         }
         #endregion
 
