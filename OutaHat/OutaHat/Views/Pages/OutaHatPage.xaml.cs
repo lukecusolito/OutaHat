@@ -16,11 +16,6 @@ namespace OutaHat.Views.Pages
             };
         }
 
-        private void Button_Clicked(object sender, System.EventArgs e)
-        {
-
-        }
-
         private void OnAddButtonClick(object sender, System.EventArgs e)
         {
             itemEntry.Focus();

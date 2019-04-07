@@ -11,7 +11,7 @@ namespace OutaHat.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Title { get; set; }
-        public INavigation Navigation { get; }
+        //public INavigation Navigation { get; }
 
         //protected ViewModelBase(INavigation navigation)
         //{
@@ -35,15 +35,15 @@ namespace OutaHat.ViewModels
         {
         }
 
-        protected virtual async Task PushPage(ContentPage page)
-        {
-            await Navigation.PushAsync(page);
-        }
+        //protected virtual async Task PushPage(ContentPage page)
+        //{
+        //    await Navigation.PushAsync(page);
+        //}
 
-        protected virtual async Task PopPage()
-        {
-            await Navigation.PopAsync();
-        }
+        //protected virtual async Task PopPage()
+        //{
+        //    await Navigation.PopAsync();
+        //}
 
         public void OnPropertyChanged([CallerMemberName]string name = "")
         {

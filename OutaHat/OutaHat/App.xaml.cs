@@ -1,5 +1,5 @@
-﻿using OutaHat.Views.Pages;
-using System;
+﻿using Autofac;
+using OutaHat.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,11 +8,16 @@ namespace OutaHat
 {
     public partial class App : Application
     {
-        public App()
+        public static IContainer Container;
+
+        public App() : this (new Bootstrapper()) { }
+        public App(Bootstrapper bootstrapper)
         {
+            Container = bootstrapper.CreateContainer();
+
             InitializeComponent();
 
-            MainPage = new OutaHatPage();
+            MainPage = Container.Resolve<OutaHatPage>();
         }
 
         protected override void OnStart()

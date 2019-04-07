@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OutaHat.Views.Pages;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -62,19 +63,21 @@ namespace OutaHat.ViewModels
 
         async Task DrawItemFromHat()
         {
-            if(HatItems.Count == 0)
-            {
-                await Application.Current.MainPage.DisplayAlert("Hmmm...", "There are no items left to draw", "OK");
-                return;
-            }
+            //if(HatItems.Count == 0)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Hmmm...", "There are no items left to draw", "OK");
+            //    return;
+            //}
 
-            var rnd = new Random();
-            var index = rnd.Next(HatItems.Count);
-            var itemDrawn = HatItems[index];
+            //var rnd = new Random();
+            //var index = rnd.Next(HatItems.Count);
+            //var itemDrawn = HatItems[index];
 
-            await Application.Current.MainPage.DisplayAlert("You Just Drew...", itemDrawn, "OK");
+            //await Application.Current.MainPage.DisplayAlert("You Just Drew...", itemDrawn, "OK");
 
-            RemoveItemFromHat(itemDrawn);
+            //RemoveItemFromHat(itemDrawn);
+            
+            //await Navigation.
         }
 
         #endregion
