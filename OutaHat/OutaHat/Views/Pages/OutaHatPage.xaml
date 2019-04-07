@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutaHat.Views.Pages.OutaHatPage"
+             x:Name="OutaHatPageRef">
+    <ContentPage.Content>
+
+        <StackLayout Padding="10" Spacing="10">
+            <Entry x:Name="itemEntry"
+                Text="{Binding NewItemEntry}"
+                Placeholder="Add an item to the hat"/>
+
+            <Button Text="Add" 
+                Command="{Binding AddItemToHatCommand}" Clicked="OnAddButtonClick"/>
+
+            <ListView x:Name="hatItemsListView" ItemsSource="{Binding HatItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*"/>
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding .}" />
+                                    <Button Grid.Column="1" VerticalOptions="Fill" Text="Remove" Command="{Binding Source={x:Reference OutaHatPageRef}, Path=BindingContext.RemoveItemFromHatCommand}" CommandParameter="{Binding .}" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Draw from Hat" Command="{Binding DrawItemFromHatCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

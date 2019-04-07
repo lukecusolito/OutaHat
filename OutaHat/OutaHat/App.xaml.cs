@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OutaHat.Views.Pages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace OutaHat
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new OutaHatPage();
         }
 
         protected override void OnStart()
