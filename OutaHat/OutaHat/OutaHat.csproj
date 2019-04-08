@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\Icons\Hamburger%4020x16.png" />
     <None Remove="Assets\Icons\Hamburger%4025x19.png" />
   </ItemGroup>
@@ -43,9 +49,5 @@
     <EmbeddedResource Update="Views\Pages\OutaHatPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
