@@ -19,6 +19,7 @@ namespace OutaHat
         protected virtual void RegisterDepenencies(ContainerBuilder builder)
         {
             //builder.RegisterType<SomeRepository>().As<ISomeRepository>().InstancePerLifetimeScope();
+
             RegisterViewModels(builder);
             RegisterPages(builder);
         }

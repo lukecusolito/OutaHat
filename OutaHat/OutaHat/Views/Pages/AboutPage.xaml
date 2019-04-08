@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OutaHat.Views.Pages.AboutPage">
+             x:Class="OutaHat.Views.Pages.AboutPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Text="{Binding Author}" Placeholder="Authors Name" />
-            <Label Text="{Binding DisplayMessage}" />
-            <Button Text="Coffee" Command="{Binding BuyMeACoffeeCommand}"/>
+        <StackLayout Padding="10" Spacing="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+            <Label Text="Author"
+                   Grid.Column="0"
+                   Grid.Row="0" />
+            <Label Text="{Binding Author}"
+                   Grid.Column="1"
+                   Grid.Row="0" />
+            
+            <Label Text="Author Email"
+                   Grid.Column="0" 
+                   Grid.Row="1"/>
+            <Label Text="{Binding AuthorEmail}"
+                   Grid.Column="1" 
+                   Grid.Row="1"/>
+
+            <Label Text="Author Organisation"
+                   Grid.Column="0"
+                   Grid.Row="2" />
+            <Label Text="{Binding AuthorOrganisation}"
+                   Grid.Column="1"
+                   Grid.Row="2" />
+            </Grid>
+
+            <BoxView Color="Transparent" 
+                     HeightRequest="5"/>
+
+            <Label Text="Like the app? Support me with coffee." />
+            <Button Text="Buy me a coffee" Command="{Binding BuyMeACoffeeCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

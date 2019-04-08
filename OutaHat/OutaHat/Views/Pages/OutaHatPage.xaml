@@ -2,18 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutaHat.Views.Pages.OutaHatPage"
-             x:Name="OutaHatPageRef">
+             x:Name="OutaHatPageRef"
+             Title="{Binding Title}">
     <ContentPage.Content>
 
         <StackLayout Padding="10" Spacing="10">
             <Entry x:Name="itemEntry"
-                Text="{Binding NewItemEntry}"
-                Placeholder="Add an item to the hat"/>
+                   Text="{Binding NewItemEntry}"
+                   Placeholder="Add an item to the hat"/>
 
             <Button Text="Add" 
-                Command="{Binding AddItemToHatCommand}" Clicked="OnAddButtonClick"/>
+                    Command="{Binding AddItemToHatCommand}" 
+                    Clicked="OnAddButtonClick"/>
 
-            <ListView x:Name="hatItemsListView" ItemsSource="{Binding HatItems}">
+            <ListView x:Name="hatItemsListView" 
+                      ItemsSource="{Binding HatItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -24,8 +27,15 @@
                                         <ColumnDefinition Width="3*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding .}" />
-                                    <Button Grid.Column="1" VerticalOptions="Fill" Text="Remove" Command="{Binding Source={x:Reference OutaHatPageRef}, Path=BindingContext.RemoveItemFromHatCommand}" CommandParameter="{Binding .}" />
+                                    <Label Text="{Binding .}"
+                                           Grid.Column="0" 
+                                           VerticalOptions="Center" />
+
+                                    <Button Text="Remove"
+                                            Grid.Column="1" 
+                                            VerticalOptions="Fill" 
+                                            Command="{Binding Source={x:Reference OutaHatPageRef}, Path=BindingContext.RemoveItemFromHatCommand}" 
+                                            CommandParameter="{Binding .}" />
                                 </Grid>
                             </ViewCell.View>
                         </ViewCell>
@@ -33,7 +43,10 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="Draw from Hat" Command="{Binding DrawItemFromHatCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+            <Button Text="Draw from Hat" 
+                    Command="{Binding DrawItemFromHatCommand}" 
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="End" />
         </StackLayout>
 
     </ContentPage.Content>

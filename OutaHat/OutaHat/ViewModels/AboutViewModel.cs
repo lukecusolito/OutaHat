@@ -1,46 +1,32 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace OutaHat.ViewModels
 {
-    public class AboutViewModel : INotifyPropertyChanged
+    public class AboutViewModel : ViewModelBase
     {
-        public AboutViewModel() {
+        #region Constructor
+        public AboutViewModel()
+        {
+            Title = "About";
+
             BuyMeACoffeeCommand = new Command(async() => await BuyMeACoffee());
         }
+        #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName]string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        private string author = "Luke Cusolito";
-        private string authorEmail = "Luke.Cusolito@Outlook.com";
-
-        public string Author
-        {
-            get
-            {
-                return author;
-            }
-            set
-            {
-                author = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(DisplayMessage));
-            }
-        }
+        #region Properties
+        public string Author { get; set; } = "Luke Cusolito";
         public string AuthorEmail { get; set; } = "Luke.Cusolito@Outlook.com";
-        public string DisplayMessage { get { return $"Your name is {Author}"; } }
+        public string AuthorOrganisation { get; set; } = "The Bearded Developers";
         
         public Command BuyMeACoffeeCommand { get; }
+        #endregion
+
+        #region Methods
         async Task BuyMeACoffee()
         {
             await Application.Current.MainPage.DisplayAlert("Buy me a coffee", "Thanks", "OK");
         }
+        #endregion
     }
 }

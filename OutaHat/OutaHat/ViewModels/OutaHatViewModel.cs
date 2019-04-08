@@ -1,9 +1,6 @@
-﻿using OutaHat.Views.Pages;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -18,6 +15,8 @@ namespace OutaHat.ViewModels
         #region Constructor
         public OutaHatViewModel()
         {
+            Title = "OutaHat";
+
             AddItemToHatCommand = new Command(async () => await AddItemToHat());
             RemoveItemFromHatCommand = new Command<string>((selectedItem) => RemoveItemFromHat(selectedItem));
             DrawItemFromHatCommand = new Command(async () => await DrawItemFromHat());
@@ -34,7 +33,6 @@ namespace OutaHat.ViewModels
         #endregion
 
         #region Methods
-
         async Task AddItemToHat()
         {
             if (!string.IsNullOrWhiteSpace(NewItemEntry))
@@ -63,21 +61,19 @@ namespace OutaHat.ViewModels
 
         async Task DrawItemFromHat()
         {
-            //if(HatItems.Count == 0)
-            //{
-            //    await Application.Current.MainPage.DisplayAlert("Hmmm...", "There are no items left to draw", "OK");
-            //    return;
-            //}
+            if (HatItems.Count == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Hmmm...", "There are no items left to draw", "OK");
+                return;
+            }
 
-            //var rnd = new Random();
-            //var index = rnd.Next(HatItems.Count);
-            //var itemDrawn = HatItems[index];
+            var rnd = new Random();
+            var index = rnd.Next(HatItems.Count);
+            var itemDrawn = HatItems[index];
 
-            //await Application.Current.MainPage.DisplayAlert("You Just Drew...", itemDrawn, "OK");
+            await Application.Current.MainPage.DisplayAlert("You Just Drew...", itemDrawn, "OK");
 
-            //RemoveItemFromHat(itemDrawn);
-            
-            //await Navigation.
+            RemoveItemFromHat(itemDrawn);
         }
 
         #endregion
